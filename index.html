@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>AI English Listening Mastery</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#17243a;--line:#293953;--text:#edf3ff;--muted:#a9b8d0;--blue:#72a7ff;--cyan:#65e0d0;--gold:#ffd27a;--red:#ff8e9b;--green:#82e0a5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#182b49 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:22px max(18px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);background:#0b1220dd;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#6aa5ff,#6de2cf);display:grid;place-items:center;color:#081321;font-size:22px;font-weight:900}.brand h1{font-size:18px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}
+nav{display:flex;gap:8px;overflow:auto;padding-top:16px}button,.tab{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 14px;border-radius:11px;cursor:pointer;font:inherit;white-space:nowrap}.tab.active,button.primary{background:#2c5da5;border-color:#528ee4}.tab:hover,button:hover{filter:brightness(1.15)}
+main{max-width:1120px;margin:auto;padding:22px 16px 70px}.view{display:none}.view.active{display:block}.hero{padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(120deg,#172c49,#142238);margin-bottom:18px}.hero h2{font-size:26px;margin:0 0 6px}.hero p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px;margin-bottom:14px}.card h3{margin:0 0 10px;font-size:17px}.muted{color:var(--muted)}.stat{font-size:28px;font-weight:750}.small{font-size:12px;color:var(--muted)}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}.pill{display:inline-block;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}.progress{height:9px;background:#26364e;border-radius:20px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0}
+label{display:block;color:var(--muted);font-size:13px;margin:12px 0 5px}input,textarea,select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0c1627;color:var(--text);font:inherit}textarea{min-height:130px;resize:vertical}input[type=file]{padding:8px}video{width:100%;max-height:420px;background:#000;border-radius:12px;margin-top:10px} .steps{display:grid;gap:9px}.step{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:#0f1a2b}.num{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:#263e60;flex-shrink:0}.step.done .num{background:#1e704f;color:#fff}.step.current{border-color:var(--blue);background:#172b48}.step button{margin-left:auto;padding:7px 10px}.q{padding:13px;border-radius:12px;background:#0e192a;margin:10px 0}.q input{margin-top:8px}.feedback{margin-top:8px;font-size:13px}.good{color:var(--green)}.bad{color:var(--red)}.word{display:inline-block;padding:3px 8px;background:#243c5b;border-radius:7px;margin:3px}.hidden{display:none!important}.notice{border-left:3px solid var(--gold);padding:10px 13px;background:#2b261b;border-radius:8px;color:#f5dfb5;font-size:13px}.danger{color:var(--red)}footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
+@media(max-width:600px){header{padding:14px}.hero h2{font-size:22px}main{padding:16px 12px 50px}.card{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">耳</div><div><h1>AI English Listening Mastery</h1><p>Listen carefully. Understand deeply. Improve every day.</p></div></div>
+ <nav>
+  <button class="tab active" data-view="home">Tổng quan</button><button class="tab" data-view="video">Video & transcript</button><button class="tab" data-view="roadmap">Lộ trình 8 bước</button><button class="tab" data-view="practice">Luyện nghe</button><button class="tab" data-view="errors">Sửa lỗi cá nhân</button>
+ </nav>
+</header>
+<main>
+<section id="home" class="view active">
+ <div class="hero"><h2>Chinh phục kỹ năng nghe tiếng Anh</h2><p>Một video, một lộ trình rõ ràng, từng lỗi sai được ghi lại để bạn tiến bộ.</p></div>
+ <div class="grid">
+  <div class="card"><div class="muted">Video đang học</div><div class="stat" id="statVideos">0</div><div class="small">Video đã lưu trên thiết bị này</div></div>
+  <div class="card"><div class="muted">Bước đã hoàn thành</div><div class="stat" id="statSteps">0%</div><div class="progress"><span id="overallBar"></span></div></div>
+  <div class="card"><div class="muted">Lỗi cần ôn</div><div class="stat" id="statErrors">0</div><div class="small">Các lỗi chưa được khắc phục</div></div>
+  <div class="card"><div class="muted">Bài luyện đã chấm</div><div class="stat" id="statTests">0</div><div class="small">Lượt kiểm tra hoàn thành</div></div>
+ </div>
+ <div class="card"><h3>Việc nên làm tiếp theo</h3><p id="nextTask" class="muted">Thêm video đầu tiên để bắt đầu hành trình.</p><button class="primary" onclick="show('video')">Thêm video / transcript</button></div>
+ <div class="notice">Bản miễn phí này xử lý ngay trong trình duyệt. Không gọi OpenAI API, không cần API key. Để tạo bài tập từ nội dung video, bạn cần dán transcript (lời thoại) vào ô bên dưới. Website không tự nghe và chép lời video bằng AI.</div>
+</section>
+<section id="video" class="view">
+ <div class="hero"><h2>Video & transcript</h2><p>Chọn video từ máy và dán lời thoại để tạo bài luyện.</p></div>
+ <div class="card">
+  <label>Tên video / chủ đề</label><input id="videoTitle" placeholder="Ví dụ: A day at the library">
+  <label>Chọn video từ tablet (không tải video lên máy chủ)</label><input id="videoFile" type="file" accept="video/*">
+  <video id="player" controls class="hidden"></video>
+  <label>Transcript tiếng Anh — mỗi câu một dòng</label><textarea id="transcript" placeholder="Paste the English transcript here.&#10;I usually walk to the library.&#10;I read books after class."></textarea>
+  <div class="row"><button class="primary" id="saveVideo">Lưu video và tạo bài luyện</button><button id="clearForm">Xóa nội dung nhập</button></div>
+  <p class="small">Video chỉ được mở tạm thời từ thiết bị. Transcript và tiến độ được lưu trong bộ nhớ trình duyệt của tablet.</p>
+ </div>
+ <div class="card"><h3>Video hiện tại</h3><p id="currentVideo" class="muted">Chưa có video nào được chọn.</p><button onclick="show('roadmap')">Đi tới lộ trình</button></div>
+</section>
+<section id="roadmap" class="view">
+ <div class="hero"><h2>Video Listening Roadmap</h2><p>Đi theo thứ tự để không bỏ sót kỹ năng quan trọng. Bạn có thể quay lại bước trước bất cứ lúc nào.</p></div>
+ <div class="card"><div class="row between"><strong id="roadmapTitle">Chưa chọn video</strong><span class="pill" id="roadmapPct">0/8 bước</span></div><div class="progress" style="margin:12px 0"><span id="roadmapBar"></span></div><div id="steps" class="steps"></div></div>
+</section>
+<section id="practice" class="view">
+ <div class="hero"><h2>Listening practice</h2><p>Luyện điền từ từ transcript, sau đó kiểm tra mà không nhìn đáp án.</p></div>
+ <div class="card"><div class="row between"><h3>Điền từ còn thiếu</h3><span class="pill">Không hiện transcript</span></div><p class="muted">Mỗi câu được ẩn một từ. Gõ từ bạn nghe được hoặc nhớ được.</p><div id="quizArea"><p class="muted">Hãy lưu video và transcript trước.</p></div><div class="row"><button class="primary" id="gradeQuiz">Chấm bài</button><button id="newQuiz">Tạo đề khác</button></div><p id="quizResult" class="feedback"></p></div>
+ <div class="card"><h3>Ôn từ vựng trong transcript</h3><div id="vocabArea" class="muted">Chưa có transcript.</div></div>
+</section>
+<section id="errors" class="view">
+ <div class="hero"><h2>Personal Error Recovery</h2><p>Ghi lại lỗi nghe nhầm, phân loại và ôn lại theo lịch 1–3–7 ngày.</p></div>
+ <div class="card"><h3>Thêm lỗi nghe</h3>
+  <label>Từ / cụm từ đúng</label><input id="correctWord" placeholder="walk">
+  <label>Bạn đã nghe nhầm thành</label><input id="wrongWord" placeholder="work">
+  <label>Câu gốc hoặc ngữ cảnh</label><input id="errorSentence" placeholder="I walk to school every day.">
+  <label>Nguyên nhân</label><select id="errorType"><option>Không nhận ra từ khi nghe</option><option>Nhầm âm</option><option>Chưa biết từ vựng</option><option>Tốc độ nói quá nhanh</option><option>Khó hiểu cấu trúc câu</option></select>
+  <button class="primary" id="addError">Lưu lỗi cần luyện</button>
+ </div>
+ <div class="card"><div class="row between"><h3>Danh sách cần ôn</h3><span class="pill" id="reviewCount">0 lỗi</span></div><div id="errorList" class="muted">Chưa có lỗi nào. Khi chấm bài, hãy thêm những từ bạn nghe nhầm.</div></div>
+</section>
+</main>
+<footer>Dữ liệu lưu trên trình duyệt của thiết bị này · Bản miễn phí, không dùng API trả phí</footer>
+<script>
+const STEPS=["Preview — Xem chủ đề, dự đoán và từ khóa","First Listening — Nghe toàn bộ, nắm ý chính","Comprehension — Trả lời câu hỏi nội dung","Detailed Listening — Nghe kỹ và điền từ","Transcript Analysis — Kiểm tra transcript, học từ mới","Shadowing — Nghe và nhắc lại câu","Final Test — Kiểm tra không xem transcript","Review — Xem điểm và phân tích lỗi"];
+const KEY="elm_free_v1";
+let data=JSON.parse(localStorage.getItem(KEY)||'{"videos":[],"active":null,"errors":[],"tests":0}');
+let quiz=[];
+function persist(){localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
+function active(){return data.videos.find(v=>v.id===data.active)||null}
+function show(id){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.view===id));if(id==="practice")makeQuiz();if(id==="roadmap")renderSteps();window.scrollTo(0,0)}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>show(b.dataset.view)));
+document.getElementById("videoFile").addEventListener("change",e=>{let f=e.target.files[0];if(f){let p=document.getElementById("player");p.src=URL.createObjectURL(f);p.classList.remove("hidden")}});
+document.getElementById("saveVideo").onclick=()=>{let title=document.getElementById("videoTitle").value.trim()||"English listening video";let transcript=document.getElementById("transcript").value.trim();if(!transcript){alert("Bạn hãy dán transcript trước khi lưu.");return}let lines=transcript.split(/\n+/).map(s=>s.trim()).filter(Boolean);if(!lines.length){alert("Transcript chưa có câu hợp lệ.");return}let v={id:Date.now(),title,transcript,lines,done:[],created:new Date().toISOString()};data.videos.push(v);data.active=v.id;persist();alert("Đã lưu video và transcript trên tablet!");show("roadmap")};
+document.getElementById("clearForm").onclick=()=>{document.getElementById("videoTitle").value="";document.getElementById("transcript").value="";document.getElementById("videoFile").value="";document.getElementById("player").classList.add("hidden")};
+function renderSteps(){let v=active();document.getElementById("roadmapTitle").textContent=v?v.title:"Chưa chọn video";let done=v?v.done.length:0;document.getElementById("roadmapPct").textContent=done+"/8 bước";document.getElementById("roadmapBar").style.width=(done/8*100)+"%";document.getElementById("steps").innerHTML=v?STEPS.map((s,i)=>`<div class="step ${v.done.includes(i)?"done":""} ${!v.done.includes(i)&&v.done.length===i?"current":""}"><div class="num">${v.done.includes(i)?"✓":i+1}</div><div style="flex:1"><strong>${s}</strong><div class="small">${v.done.includes(i)?"Đã hoàn thành":v.done.length===i?"Bước hiện tại":"Chưa hoàn thành"}</div></div><button onclick="toggleStep(${i})">${v.done.includes(i)?"Bỏ đánh dấu":"Hoàn thành"}</button></div>`).join(""):'<p class="muted">Hãy thêm video và transcript trước.</p>'}
+function toggleStep(i){let v=active();if(!v)return;v.done=v.done.includes(i)?v.done.filter(x=>x!==i):[...v.done,i].sort((a,b)=>a-b);persist()}
+function makeQuiz(){let v=active(),area=document.getElementById("quizArea");if(!v){area.innerHTML='<p class="muted">Hãy lưu video và transcript trước.</p>';return}let candidates=v.lines.filter(s=>s.split(/\s+/).length>=4);quiz=(candidates.length?candidates:v.lines).slice(0,8).map((line,i)=>{let words=line.match(/[A-Za-z']+/g)||[];let idx=Math.min(words.length-1,Math.max(0,Math.floor(words.length*.45)));let answer=words[idx]||"";let shown=line.replace(new RegExp("\\b"+answer.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+"\\b","i"),"______");return {line:shown,answer,index:i}});area.innerHTML=quiz.map((q,i)=>`<div class="q"><strong>Câu ${i+1}.</strong> ${escapeHtml(q.line)}<input id="ans${i}" autocomplete="off" placeholder="Nhập từ còn thiếu"></div>`).join("")||'<p>Transcript chưa đủ dài để tạo câu hỏi.</p>';document.getElementById("quizResult").textContent="";}
+document.getElementById("newQuiz").onclick=makeQuiz;
+document.getElementById("gradeQuiz").onclick=()=>{if(!quiz.length){makeQuiz();return}let correct=0;quiz.forEach((q,i)=>{let el=document.getElementById("ans"+i);if(!el)return;let ok=el.value.trim().toLowerCase()===q.answer.toLowerCase();if(ok)correct++;let fb=document.createElement("div");fb.className="feedback "+(ok?"good":"bad");fb.textContent=ok?"Chính xác!":"Đáp án: "+q.answer;el.after(fb);});data.tests++;persist();document.getElementById("quizResult").textContent=`Kết quả: ${correct}/${quiz.length} câu đúng.`};
+function renderVocab(){let v=active();let words=v?(v.transcript.toLowerCase().match(/\b[a-z]{4,}\b/g)||[]):[];let uniq=[...new Set(words)].slice(0,40);document.getElementById("vocabArea").innerHTML=uniq.length?uniq.map(w=>`<span class="word">${escapeHtml(w)}</span>`).join(""):"Chưa có transcript."}
+document.getElementById("addError").onclick=()=>{let correct=document.getElementById("correctWord").value.trim(),wrong=document.getElementById("wrongWord").value.trim();if(!correct||!wrong){alert("Hãy nhập từ đúng và từ nghe nhầm.");return}data.errors.push({id:Date.now(),correct,wrong,sentence:document.getElementById("errorSentence").value.trim(),type:document.getElementById("errorType").value,created:Date.now(),review:Date.now()+86400000,streak:0});["correctWord","wrongWord","errorSentence"].forEach(id=>document.getElementById(id).value="");persist()};
+function renderErrors(){let box=document.getElementById("errorList");document.getElementById("reviewCount").textContent=data.errors.length+" lỗi";box.innerHTML=data.errors.length?data.errors.map(e=>`<div class="q"><div class="row between"><strong>${escapeHtml(e.wrong)} → ${escapeHtml(e.correct)}</strong><span class="pill">${e.streak>=2?"Đang cải thiện":"Cần ôn"}</span></div><div class="small">${escapeHtml(e.type)} · ${e.sentence?escapeHtml(e.sentence):"Chưa có câu ngữ cảnh"}</div><div class="small">Ôn tiếp: ${new Date(e.review).toLocaleDateString("vi-VN")}</div><div class="row" style="margin-top:8px"><button onclick="reviewError(${e.id},true)">Đã nhớ đúng</button><button onclick="reviewError(${e.id},false)">Vẫn sai</button><button onclick="deleteError(${e.id})">Xóa</button></div></div>`).join(""):"Chưa có lỗi nào. Hãy thêm từ nghe nhầm để bắt đầu."}
+function reviewError(id,ok){let e=data.errors.find(x=>x.id===id);if(!e)return;if(ok){e.streak++;e.review=Date.now()+(e.streak===1?3:7)*86400000;if(e.streak>=3)e.status="improved"}else{e.streak=0;e.review=Date.now()+86400000}persist()}
+function deleteError(id){data.errors=data.errors.filter(e=>e.id!==id);persist()}
+function renderAll(){document.getElementById("statVideos").textContent=data.videos.length;let all=data.videos.reduce((n,v)=>n+v.done.length,0),total=data.videos.length*8,pct=total?Math.round(all/total*100):0;document.getElementById("statSteps").textContent=pct+"%";document.getElementById("overallBar").style.width=pct+"%";document.getElementById("statErrors").textContent=data.errors.filter(e=>e.status!=="improved").length;document.getElementById("statTests").textContent=data.tests;let v=active();document.getElementById("currentVideo").textContent=v?v.title:"Chưa có video nào được chọn.";document.getElementById("nextTask").textContent=v?`Tiếp tục video “${v.title}”: ${STEPS.find((s,i)=>!v.done.includes(i))||"Bạn đã hoàn thành cả 8 bước!"}`:"Thêm video đầu tiên và dán transcript để bắt đầu.";renderSteps();renderErrors();renderVocab()}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+renderAll();
+</script>
+</body></html>
